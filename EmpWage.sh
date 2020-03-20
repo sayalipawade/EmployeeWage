@@ -14,6 +14,8 @@ empSalary=0
 totalEmpHours=0
 totalWorkingDays=0
 empHours=0
+dailyWage=0
+empMonthlyWage=0
 
 #Calculating wages till No of working days and Hours using function
 function getWorkingHours()
@@ -31,12 +33,17 @@ function getWorkingHours()
 	esac
 echo $empHours
 }
+
+#Calculating Daily wage along with monthly wage
 while [[ $totalWorkingDays -le $NUM_OF_WORKING_DAYS && $totalEmpHours -le $MAX_HRS ]]
 do
-	((totalWorkingDays++))
 	empHours=$( getWorkingHours $((RANDOM%3)) )
 	totalEmpHours=$((totalEmpHours+$empHours))
+	((totalWorkingDays++))
+	dailyWage=$((empHours*EMP_RATE_PER_HOUR))
+	dailyWage[$totalWorkingDays]=$dailyWage
+	empMonthlyWage=$((empMonthlyWage+dailyWage))
 done
-totalSalary=$(($totalEmpHours*$EMP_RATE_PER_HOUR))
-echo $totalSalary
+echo ${dailyWage[@]}
+echo $empMonthlyWage
 
