@@ -35,7 +35,7 @@ echo $empHours
 }
 
 #Calculating Daily wage along with monthly wage
-while [[ $totalWorkingDays -le $NUM_OF_WORKING_DAYS && $totalEmpHours -le $MAX_HRS ]]
+while [[ $totalWorkingDays -lt $NUM_OF_WORKING_DAYS && $totalEmpHours -lt $MAX_HRS ]]
 do
 	empHours=$( getWorkingHours $((RANDOM%3)) )
 	totalEmpHours=$((totalEmpHours+$empHours))
@@ -45,5 +45,5 @@ do
 	empMonthlyWage=$((empMonthlyWage+dailyWage))
 done
 echo ${dailyWage[@]}
-echo $empMonthlyWage
+echo ${!dailyWage[@]}
 
