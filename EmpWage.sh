@@ -18,7 +18,6 @@ empHours=0
 #Calculating wages till No of working days and Hours using function
 function getWorkingHours()
 {
-	attendence=$((RANDOM%3))
 	case $1 in
 		$EMP_PRESENT)
 				empHours=8
