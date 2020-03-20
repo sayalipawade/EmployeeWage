@@ -11,18 +11,18 @@ EMP_RATE_PER_HOUR=20
 empSalary=0
 attendence=$((RANDOM%3))
 case $attendence in
-			$EMP_PRESENT)
-						empHours=8
-						empSalary=$(($empHours*$EMP_RATE_PER_HOUR))
-						;;
-			$ISPART_TIME)
-						empHours=4
-						empSalary=$(($empHours*$EMP_RATE_PER_HOUR))
-						;;
-			$EMP_ABSENT)
-						empHours=0
-						empSalary=0
-						;;
+		$EMP_PRESENT)
+				empHours=8
+				empSalary=$(($empHours*$EMP_RATE_PER_HOUR))
+				;;
+		$ISPART_TIME)
+				empHours=4
+				empSalary=$(($empHours*$EMP_RATE_PER_HOUR))
+				;;
+		$EMP_ABSENT)
+				empHours=0
+				empSalary=0
+				;;
 esac
 echo $empSalary
 
