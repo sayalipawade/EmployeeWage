@@ -7,11 +7,14 @@ ISPART_TIME=2
 EMP_ABSENT=0
 EMP_RATE_PER_HOUR=20
 NUM_OF_WORKING_DAYS=20
+MAX_HRS=100
 
 #variables
 empSalary=0
+totalEmpHours=0
+totalWorkingDays=0
 
-for (( day=1;day<=$NUM_OF_WORKING_DAYS;day++))
+while [[ $totalWorkingDays -le $NUM_OF_WORKING_DAYS && $totalEmpHours -le $MAX_HRS ]]
 do
 	attendence=$((RANDOM%3))
 	case $attendence in
@@ -25,8 +28,8 @@ do
 				empHours=0
 				;;
 	esac
-empSalary=$(($empHours*$EMP_RATE_PER_HOUR))
-totalSalary=$(($totalSalary+$empSalary))
+totalEmpHours=$(($totalEmpHours+$empHours))
 done
+totalSalary=$(($totalEmpHours*$EMP_RATE_PER_HOUR))
 echo $totalSalary
 
