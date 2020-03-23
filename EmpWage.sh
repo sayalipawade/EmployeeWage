@@ -6,6 +6,7 @@ EMP_PRESENT=1
 ISPART_TIME=2
 EMP_ABSENT=0
 EMP_RATE_PER_HOUR=20
+
 NUM_OF_WORKING_DAYS=20
 MAX_HRS=100
 
@@ -46,4 +47,18 @@ do
 done
 echo ${dailyWage[@]}
 echo ${!dailyWage[@]}
+
+#variables
+empHours=0
+
+attendence=$((RANDOM%2))
+if [[ $EMP_PRESENT -eq $attendence ]]
+then
+	empHours=8
+	EmpSalary=$(($empHours*$EMP_RATE_PER_HOUR))
+else
+	empHours=0
+	EmpSalary=0
+fi
+
 
